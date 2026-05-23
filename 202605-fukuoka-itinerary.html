@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>福岡 Fukuoka · 28 May – 1 Jun 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@300;400&family=IBM+Plex+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F7F3EE;
+  --ink: #1C1917;
+  --red: #C0392B;
+  --warm: #8C7B6B;
+  --warm-light: #B5A89A;
+  --rule: rgba(28,25,23,0.1);
+  --accent: #2C5F5D;
+  --accent-light: rgba(44,95,93,0.08);
+  --gold: #9A7B2E;
+  --max: 720px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', sans-serif; font-weight: 300; font-size: 15px; line-height: 1.65; }
+
+/* ── HERO ── */
+.hero {
+  padding: 56px 24px 44px;
+  max-width: var(--max);
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-kanji {
+  position: absolute;
+  top: 20px;
+  right: -20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 200px;
+  font-style: italic;
+  color: rgba(28,25,23,0.045);
+  pointer-events: none;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  display: none;
+}
+.hero-eye {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 18px;
+}
+.hero-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 68px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+.hero-title span { font-style: italic; color: var(--red); }
+.hero-kanji-mobile {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-style: italic;
+  color: var(--warm-light);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  position: relative;
+  top: -8px;
+}
+.hero-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--warm);
+  letter-spacing: 0.14em;
+  line-height: 2;
+  text-transform: uppercase;
+}
+
+/* ── MOOD BAND ── */
+.mood-band {
+  background: var(--accent);
+  color: var(--paper);
+  padding: 16px 24px;
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #E8DCC8;
+}
+.mood-band span { color: rgba(255,255,255,0.4); margin: 0 8px; }
+
+/* ── DAYS ── */
+.days {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0;
+}
+.day {
+  border-bottom: 1px solid var(--rule);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+.day.in { opacity: 1; transform: none; }
+.day-hdr {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--rule);
+}
+.day-num {
+  background: var(--red);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 14px;
+  flex-shrink: 0;
+  min-width: 72px;
+}
+.day-num.dep { background: var(--warm); }
+.dn {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  color: #fff;
+  line-height: 1;
+  font-style: italic;
+}
+.dm {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  text-align: center;
+}
+.day-info {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.day-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.2;
+}
+.day-theme {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--warm);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+/* ── SEGMENTS ── */
+.segs { padding: 4px 24px 16px; }
+.seg { padding: 22px 0; border-bottom: 1px solid var(--rule); }
+.seg:last-child { border-bottom: none; }
+.seg-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--warm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.seg-meta .seg-time { color: var(--ink); }
+.seg-meta .seg-dot { color: var(--warm-light); margin: 0 8px; }
+.sn {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  line-height: 1.3;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.sn em { font-style: italic; color: var(--red); }
+.sd { font-size: 14px; line-height: 1.75; color: #3A352F; }
+.sd strong { color: var(--ink); font-weight: 400; }
+.sd .nm {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  vertical-align: middle;
+  margin-left: 4px;
+  white-space: nowrap;
+}
+
+/* ── MAP LINK ── */
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 6px 12px;
+  background: var(--accent-light);
+  border: 1px solid rgba(44,95,93,0.2);
+  border-radius: 3px;
+  text-decoration: none;
+  color: var(--accent);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+.map-link:active { background: rgba(44,95,93,0.15); }
+.map-link + .map-link { margin-left: 6px; }
+
+/* ── CONFIRMED ROW (unified pattern) ── */
+.conf {
+  margin-top: 14px;
+  border-left: 2px solid var(--accent);
+  background: var(--accent-light);
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+.conf-d {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  line-height: 1.8;
+}
+.conf-b {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  background: var(--accent);
+  color: #fff;
+  padding: 4px 10px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* ── NOTES SECTION ── */
+.notes-wrap { border-top: 2px solid var(--ink); background: var(--paper); }
+.notes {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 56px 24px 40px;
+}
+.notes-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-style: italic;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.notes-eye {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--warm);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+/* Each note */
+.note {
+  border-left: 2px solid var(--accent);
+  padding: 4px 0 4px 20px;
+  margin-bottom: 32px;
+}
+.note:last-child { margin-bottom: 0; }
+.note-marker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.14em;
+  margin-bottom: 4px;
+}
+.note-marker::before { content: '※ '; }
+.note-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.note-key {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.note-key::before { content: '→ '; color: var(--accent); font-style: normal; }
+.note-body {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: #3A352F;
+}
+.note-body strong { color: var(--ink); font-weight: 400; }
+.note-body p + p { margin-top: 10px; }
+
+/* Stay / Flights notes use the same pattern, with mono detail */
+.note-detail-mono {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--warm);
+  line-height: 1.9;
+  margin-top: 8px;
+}
+.note-detail-mono strong { color: var(--ink); font-weight: 400; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 2px solid var(--ink);
+  padding: 28px 24px;
+  max-width: var(--max);
+  margin: 0 auto;
+  text-align: center;
+}
+.foot {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--warm);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.foot-kanji {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--warm-light);
+  margin-bottom: 8px;
+}
+
+/* ── DESKTOP ── */
+@media (min-width: 800px) {
+  :root { --max: 760px; }
+  body { font-size: 15.5px; }
+  .hero { padding: 80px 32px 60px; }
+  .hero-bg-kanji { display: block; }
+  .hero-kanji-mobile { display: none; }
+  .hero-title { font-size: 96px; }
+  .hero-sub { font-size: 12px; }
+  .mood-band { font-size: 11px; letter-spacing: 0.28em; padding: 18px 24px; }
+  .segs { padding: 4px 32px 24px; }
+  .seg { padding: 26px 0; }
+  .sn { font-size: 24px; }
+  .sd { font-size: 14.5px; }
+  .notes { padding: 72px 32px 56px; }
+  .notes-title { font-size: 44px; }
+  footer { padding: 36px 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg-kanji">福岡</div>
+  <div class="hero-eye">Japan &middot; Kyushu &middot; Champ &amp; Gus &middot; Late May 2026</div>
+  <div class="hero-title-row">
+    <h1 class="hero-title">Fuku<span>oka</span></h1>
+    <span class="hero-kanji-mobile">福岡</span>
+  </div>
+  <div class="hero-sub">
+    Thu 28 May &rarr; Mon 1 Jun &nbsp;&middot;&nbsp; 4 Nights &nbsp;&middot;&nbsp; 23&ndash;24&deg;C
+  </div>
+</header>
+
+<!-- MOOD BAND -->
+<div class="mood-band">
+  Hakata Bay <span>·</span> Yatai <span>·</span> Daimyo <span>·</span> Genkai Sea
+</div>
+
+<!-- DAYS -->
+<div class="days">
+
+<!-- ──────────── DAY 1 ──────────── -->
+<div class="day" id="d1">
+  <div class="day-hdr">
+    <div class="day-num"><div class="dn">28</div><div class="dm">Thu &middot; May</div></div>
+    <div class="day-info">
+      <div class="day-name">Arrival &amp; First Light</div>
+      <div class="day-theme">land at dawn &middot; daimyo &middot; lanterns on the river</div>
+    </div>
+  </div>
+  <div class="segs">
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">00:40</span><span class="seg-dot">·</span>Depart Bangkok</div>
+      <div class="sn">TG648 lifts from <em>Suvarnabhumi</em></div>
+      <div class="sd">A night flight you'll sleep through. Champ in 17F, Gus in 17D &mdash; seated together, the kind of small detail that matters. Arrive at the airport by 22:30; let the lounge do the rest.</div>
+      <div class="conf">
+        <div class="conf-d">TG648 &middot; 00:40&rarr;08:00 &middot; Seats 17D (Gus) &amp; 17F (Champ)<br>Business(Z) &middot; A330-300 &middot; Ref: EZY88H / EZSNAC</div>
+        <div class="conf-b">&#10003; Confirmed</div>
+      </div>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">08:00</span><span class="seg-dot">·</span>Arrive Fukuoka</div>
+      <div class="sn">Touchdown at <em>Fukuoka Airport</em></div>
+      <div class="sd">By breakfast time you'll already be in the city &mdash; Fukuoka's quiet gift to the jet-lagged is an airport that sits five minutes from downtown. Step outside arrivals, take a taxi from the rank, and let the morning unfurl through the window. <span class="nm">※ N1</span></div>
+      <a class="map-link" href="https://maps.google.com/?q=Fukuoka+Airport+International+Terminal" target="_blank">📍 Fukuoka Airport &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">08:30</span><span class="seg-dot">·</span>Check-in</div>
+      <div class="sn">Welcome to <em>The Ritz-Carlton</em></div>
+      <div class="sd">The room won't be ready &mdash; that's fine. Leave your bags with the concierge, and let Daimyo take over for the morning. The hotel will be here when you need it; the city won't be.</div>
+      <div class="conf">
+        <div class="conf-d">King, Skyline View &middot; Floors 19&ndash;23<br>28 May 15:00 check-in &middot; 1 Jun 12:00 check-out</div>
+        <div class="conf-b">91140844</div>
+      </div>
+      <a class="map-link" href="https://maps.google.com/?q=The+Ritz-Carlton+Fukuoka+2-6-50+Daimyo+Chuo-ku" target="_blank">📍 Ritz-Carlton &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">Morning</span><span class="seg-dot">·</span>First coffee</div>
+      <div class="sn">Coffee at <em>Caf&eacute; Brasileiro</em></div>
+      <div class="sd">A three-minute walk and seventy years of practice &mdash; one of Fukuoka's oldest coffee houses, where regulars still read newspapers and the espresso is pulled the way it was in 1956. A slow, dignified way to meet the city. <span class="nm">※ N2</span></div>
+      <a class="map-link" href="https://maps.google.com/?q=Cafe+Brasileiro+Daimyo+Fukuoka" target="_blank">📍 Caf&eacute; Brasileiro &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">Afternoon</span><span class="seg-dot">·</span>Wander</div>
+      <div class="sn">Lose yourself in <em>Daimyo</em></div>
+      <div class="sd">The neighbourhood around your hotel is Fukuoka's most quietly beautiful &mdash; narrow streets lined with vintage shops, independent boutiques, and caf&eacute;s with chairs spilling onto the pavement. Walk until you're tired. Return to the hotel when you are.</div>
+      <a class="map-link" href="https://maps.google.com/?q=Daimyo+Fukuoka+Chuo-ku" target="_blank">📍 Daimyo &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">19:30</span><span class="seg-dot">·</span>First night</div>
+      <div class="sn"><em>Yatai</em> along the Nakasu canal</div>
+      <div class="sd">You'll smell the broth before you see the lanterns &mdash; Hakata's open-air kitchens lit like fireflies along the river, strangers shoulder-to-shoulder over steaming bowls. Ten minutes by foot from the hotel. No reservation, cash in pocket, and an empty appetite is all you need.</div>
+      <a class="map-link" href="https://maps.google.com/?q=Nakasu+Yatai+Fukuoka+canal" target="_blank">📍 Nakasu Yatai &#8599;</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ──────────── DAY 2 ──────────── -->
+<div class="day" id="d2">
+  <div class="day-hdr">
+    <div class="day-num"><div class="dn">29</div><div class="dm">Fri &middot; May</div></div>
+    <div class="day-info">
+      <div class="day-name">Among the Willows</div>
+      <div class="day-theme">yanagawa &middot; eel for lunch &middot; canals in afternoon light &middot; offal pot at night</div>
+    </div>
+  </div>
+  <div class="segs">
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">Morning</span><span class="seg-dot">·</span>Slow start</div>
+      <div class="sn">Coffee, then <em>Tenjin</em> Station</div>
+      <div class="sd">No early alarm. A pastry somewhere in Daimyo, a second coffee if you like it, then walk to Nishitetsu Fukuoka Station around 11:00 &mdash; the express south to Yanagawa runs often, and the hour through small towns and rice fields is part of the trip.</div>
+      <a class="map-link" href="https://maps.google.com/?q=Nishitetsu+Fukuoka+Tenjin+Station+Fukuoka" target="_blank">📍 Nishitetsu Tenjin Station &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">12:30</span><span class="seg-dot">·</span>Lunch</div>
+      <div class="sn"><em>Seiromushi</em> &mdash; eel steamed over rice</div>
+      <div class="sd">Yanagawa's signature dish, served the same way for three centuries: eel grilled, glazed, then steamed in a wooden box until the rice beneath turns the colour of dark amber. The kind of meal that explains, without words, why people return to a small town. <span class="nm">※ N4</span></div>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">14:00</span><span class="seg-dot">·</span>On the water</div>
+      <div class="sn">A boat through <em>Yanagawa</em></div>
+      <div class="sd">A short walk from lunch to the boat station. A boatman will ease your wooden punt under low stone bridges, willows brushing the surface, the only sound his pole turning gently against the canal floor. Seventy minutes you won't want to end &mdash; and you'll be on the water as the afternoon light begins to gild the canals. <span class="nm">※ N3</span></div>
+      <a class="map-link" href="https://maps.google.com/?q=Yanagawa+Boat+Cruise+Fukuoka+Yanagawa" target="_blank">📍 Yanagawa Canal &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">17:00</span><span class="seg-dot">·</span>Return</div>
+      <div class="sn">Back to the city, then <em>Tenjin Nishidori</em></div>
+      <div class="sd">Train back to Fukuoka by early evening. Freshen up at the hotel, then walk to Tenjin &mdash; Rakutenchi is on Nishidori, right beside the unmistakable red Ichiran sign.</div>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">19:30</span><span class="seg-dot">·</span>Dinner</div>
+      <div class="sn"><em>Motsunabe Rakutenchi</em></div>
+      <div class="sd">Hakata's most beloved dish, in the place that helped invent it. Six cuts of Wagyu offal simmering in a deep miso broth alongside mounds of cabbage and chive, until you can't tell where one ingredient ends and the next begins. Finish with champon noodles dropped straight into what's left. Three hours later you'll feel newly alive.</div>
+      <div class="conf">
+        <div class="conf-d">Fri 29 May &middot; 19:30 JST &middot; Party of 2 &middot; Table seating<br>2-ch&omacr;me-1-58 Daimyo &middot; Cancel 2 days prior</div>
+        <div class="conf-b">&#10003; Confirmed</div>
+      </div>
+      <a class="map-link" href="https://maps.app.goo.gl/dv7416xyRfi95pME6" target="_blank">📍 Rakutenchi &#8599;</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ──────────── DAY 3 ──────────── -->
+<div class="day" id="d3">
+  <div class="day-hdr">
+    <div class="day-num"><div class="dn">30</div><div class="dm">Sat &middot; May</div></div>
+    <div class="day-info">
+      <div class="day-name">Shrines, Lakes, &amp; the Sea on a Plate</div>
+      <div class="day-theme">dazaifu &middot; kyushu national museum &middot; ohori park &middot; gohanya hansuke</div>
+    </div>
+  </div>
+  <div class="segs">
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">Morning</span><span class="seg-dot">·</span>Coffee</div>
+      <div class="sn">A flat white at <em>Manu Coffee</em></div>
+      <div class="sd">Fukuoka's most respected specialty roaster, hidden on a Daimyo side street. A cortado for him, an oat latte for her, and the morning takes care of itself.</div>
+      <a class="map-link" href="https://maps.google.com/?q=Manu+Coffee+Daimyo+Fukuoka" target="_blank">📍 Manu Coffee &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">09:30</span><span class="seg-dot">·</span>Shrine</div>
+      <div class="sn"><em>Dazaifu Tenmangu</em></div>
+      <div class="sd">Thirty minutes by train to one of Japan's most loved shrines, dedicated to the god of learning. The approach is lined with stalls selling umegae-mochi &mdash; small grilled rice cakes filled with plum bean paste, made nowhere else. Buy one warm, eat it as you walk.</div>
+      <a class="map-link" href="https://maps.google.com/?q=Dazaifu+Tenmangu+Shrine+Fukuoka" target="_blank">📍 Dazaifu Tenmangu &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">11:00</span><span class="seg-dot">·</span>Museum</div>
+      <div class="sn"><em>Kyushu National Museum</em></div>
+      <div class="sd">One of only four national museums in Japan, reached from the shrine by a long escalator carved into the hillside. The collection traces a thousand years of cultural exchange between Japan and the rest of Asia &mdash; the building itself, all wood and glass and curved roof, is worth the visit alone.</div>
+      <a class="map-link" href="https://maps.google.com/?q=Kyushu+National+Museum+Dazaifu" target="_blank">📍 Kyushu National Museum &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">13:30</span><span class="seg-dot">·</span>Lunch</div>
+      <div class="sn">Light lunch at <em>La Brioche</em></div>
+      <div class="sd">Back in the city. A French bakery near Ohori Park, the kind of place where bread is still treated like architecture. Buy a baguette, a tart, and a coffee &mdash; eat it on a bench under the trees.</div>
+      <a class="map-link" href="https://maps.google.com/?q=La+Brioche+Ohori+Park+Fukuoka" target="_blank">📍 La Brioche &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">15:00</span><span class="seg-dot">·</span>Afternoon</div>
+      <div class="sn">An hour around <em>Ohori Park</em></div>
+      <div class="sd">Two kilometres of flat path around a central pond, three small islands joined by bridges, and a Japanese garden tucked inside that asks nothing of you. The late-May green is at its softest. Stop on a bench. Don't apologise for being slow.</div>
+      <a class="map-link" href="https://maps.google.com/?q=Ohori+Park+Fukuoka" target="_blank">📍 Ohori Park &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">19:30</span><span class="seg-dot">·</span>Dinner of the trip</div>
+      <div class="sn"><em>Gohanya Hansuke</em></div>
+      <div class="sd">The owner walks Yanagibashi Market at dawn and chooses each day what dinner will be &mdash; bluefin tuna from the Genkai Sea, whatever else the morning has offered. A small room, a counter, two tables. One of Japan's Top 100 restaurants, and the meal you'll remember longest.</div>
+      <div class="conf">
+        <div class="conf-d">Sat 30 May &middot; 19:30 JST &middot; Party of 2 &middot; Table seating<br>3-ch&omacr;me-3-24 &Omacr;temon &middot; Cancel by 27 May</div>
+        <div class="conf-b">&#9733; Confirmed</div>
+      </div>
+      <a class="map-link" href="https://maps.google.com/?q=Gohanya+Hansuke+Fukuoka+Otemon" target="_blank">📍 Gohanya Hansuke &#8599;</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ──────────── DAY 4 ──────────── -->
+<div class="day" id="d4">
+  <div class="day-hdr">
+    <div class="day-num"><div class="dn">31</div><div class="dm">Sat &middot; May</div></div>
+    <div class="day-info">
+      <div class="day-name">The City, In Full</div>
+      <div class="day-theme">market dawn &middot; old town &middot; ramen &middot; last lanterns</div>
+    </div>
+  </div>
+  <div class="segs">
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">09:00</span><span class="seg-dot">·</span>Market</div>
+      <div class="sn"><em>Yanagibashi</em> &mdash; Fukuoka's Kitchen</div>
+      <div class="sd">A covered alley barely wider than your shoulders, where forty-seven stalls feed the city's chefs each morning. Glistening tuna belly, slabs of mentaiko, vegetables you've never seen. Saturday is the right day &mdash; closed on Sunday. Bring cash, take your time.</div>
+      <a class="map-link" href="https://maps.google.com/?q=Yanagibashi+Rengo+Market+Fukuoka" target="_blank">📍 Yanagibashi Market &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">10:30</span><span class="seg-dot">·</span>Old town</div>
+      <div class="sn"><em>Kushida Shrine</em> &amp; the merchant quarter</div>
+      <div class="sd">Fukuoka's spiritual centre, home to the great floats of the Hakata Gion Yamakasa festival &mdash; ten metres tall, displayed year-round, impossible not to stop and stare. Next door, a small museum tells the story of Hakata as a merchant city for a thousand years.</div>
+      <a class="map-link" href="https://maps.google.com/?q=Kushida+Shrine+Fukuoka+Hakata" target="_blank">📍 Kushida Shrine &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">12:30</span><span class="seg-dot">·</span>Lunch</div>
+      <div class="sn">Tonkotsu the way it was meant to be &mdash; <em>Shin-Shin</em></div>
+      <div class="sd">Fukuoka invented this dish: pork bones simmered for sixteen hours until the broth turns ivory, thin straight noodles dropped in at the last second, a slice of char siu, a single soft egg. Shin-Shin near Tenjin gets it right every single time.</div>
+      <a class="map-link" href="https://maps.google.com/?q=Shin-Shin+ramen+Tenjin+Fukuoka" target="_blank">📍 Shin-Shin &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">14:00</span><span class="seg-dot">·</span>Afternoon coffee</div>
+      <div class="sn">A second visit to <em>Daimyo</em></div>
+      <div class="sd">Back to the neighbourhood you already half-know &mdash; second cup at Manu, or pull a chair into the sun at CORDUROY, where the windows go floor to ceiling and stay open until three in the morning. Wander the side streets between.</div>
+      <a class="map-link" href="https://maps.google.com/?q=Manu+Coffee+Daimyo+Fukuoka" target="_blank">📍 Manu Coffee &#8599;</a>
+      <a class="map-link" href="https://maps.google.com/?q=CORDUROY+cafe+Daimyo+Fukuoka" target="_blank">📍 CORDUROY &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">16:30</span><span class="seg-dot">·</span>Souvenirs</div>
+      <div class="sn"><em>Mentaiko</em> for home</div>
+      <div class="sd">The trip's most edible souvenir: spicy cod roe, vacuum-packed and safe to fly. Fukuya does it best &mdash; pick up a few packs for friends, one for yourselves. Hakata-ori woven silk is the other thing to bring back, if either of you wants something to keep.</div>
+      <a class="map-link" href="https://maps.google.com/?q=Fukuya+Mentaiko+Fukuoka" target="_blank">📍 Fukuya &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">Evening</span><span class="seg-dot">·</span>Last night</div>
+      <div class="sn">The lanterns, one more time</div>
+      <div class="sd">One final visit to the yatai &mdash; the same stalls, the same broth, except now you know what you're tasting and that tomorrow you leave. After dinner, walk to Oyafuko-dori. A natural wine bar, a craft beer at FUKUOKA CRAFT, or whichever doorway feels right. End the trip slowly.</div>
+      <a class="map-link" href="https://maps.google.com/?q=Nakasu+Yatai+Fukuoka+canal" target="_blank">📍 Nakasu Yatai &#8599;</a>
+      <a class="map-link" href="https://maps.google.com/?q=Oyafuko-dori+Fukuoka+Tenjin+bar+street" target="_blank">📍 Oyafuko-dori &#8599;</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ──────────── DAY 5 ──────────── -->
+<div class="day" id="d5">
+  <div class="day-hdr">
+    <div class="day-num dep"><div class="dn">1</div><div class="dm">Mon &middot; Jun</div></div>
+    <div class="day-info">
+      <div class="day-name">The Long Way Home</div>
+      <div class="day-theme">one last coffee &middot; check-out &middot; tg649 at 11:35</div>
+    </div>
+  </div>
+  <div class="segs">
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">Morning</span><span class="seg-dot">·</span>Leaving</div>
+      <div class="sn">A final coffee in <em>Daimyo</em></div>
+      <div class="sd">Bags down with the bell desk the night before &mdash; that's the secret to a good last morning. One more flat white at Manu, or a final pastry at Caf&eacute; Brasileiro. Leave the hotel by 09:30 and the airport will be quiet enough that you'll barely notice it.</div>
+      <a class="map-link" href="https://maps.google.com/?q=Manu+Coffee+Daimyo+Fukuoka" target="_blank">📍 Manu Coffee &#8599;</a>
+    </div>
+
+    <div class="seg">
+      <div class="seg-meta"><span class="seg-time">11:35</span><span class="seg-dot">·</span>Depart</div>
+      <div class="sn">TG649 home to <em>Bangkok</em></div>
+      <div class="sd">Door to door, ten minutes. Check-in is fast, the lounge is generous, the flight is brief. You'll be back in your own bed by evening &mdash; with mentaiko in the freezer and the smell of broth still somewhere on your jacket.</div>
+      <div class="conf">
+        <div class="conf-d">TG649 &middot; 11:35&rarr;15:05 &middot; Seats 14E (Gus) &amp; 14G (Champ)<br>Business(Z) &middot; A330-300 &middot; FUK Terminal I</div>
+        <div class="conf-b">&#10003; Confirmed</div>
+      </div>
+      <a class="map-link" href="https://maps.google.com/?q=Fukuoka+Airport+International+Terminal" target="_blank">📍 FUK Airport &#8599;</a>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /days -->
+
+<!-- ──────────── NOTES & REMARKS ──────────── -->
+<div class="notes-wrap">
+<div class="notes">
+  <div class="notes-title">Notes &amp; Remarks</div>
+  <div class="notes-eye">Marked &#xFF1F; in the itinerary &middot; logistics &middot; bookings &middot; small print</div>
+
+  <div class="note">
+    <div class="note-marker">N1 &middot; Airport Transfer</div>
+    <div class="note-title">Getting from FUK to the hotel</div>
+    <div class="note-key">Taxi from the airport &mdash; quickest, easiest, fits all luggage.</div>
+    <div class="note-body">
+      A taxi from Fukuoka Airport (International Terminal) to the Ritz-Carlton is roughly &yen;2,000 door-to-door, 10&ndash;15 minutes. Ask for a large wagon taxi (ワゴン車) at the rank if the queue offers one &mdash; comfortable space for two large bags plus a cabin bag.<br><br>
+      <strong>Awaiting Ritz-Carlton transfer enquiry</strong> &mdash; they may offer a private car or limousine service from the airport. Compare cost and convenience before deciding.<br><br>
+      <strong>For departure day</strong> &mdash; ask the concierge the night before to arrange the taxi or hotel car for 09:30.
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="note-marker">N2 &middot; Breakfast</div>
+    <div class="note-title">Eating in Daimyo, not at the hotel</div>
+    <div class="note-key">Skip the hotel buffet &mdash; Daimyo's caf&eacute;s are better and a fraction of the price.</div>
+    <div class="note-body">
+      Hotel Viridis breakfast is &yen;6,500 per person &mdash; decent, but several reviewers find it overpriced for the quality. Daimyo is at your doorstep: Caf&eacute; Brasileiro, Manu Coffee, and a handful of bakeries all within five minutes. &yen;500&ndash;1,500 per person, far more memorable, and a better way to begin each day in the city.
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="note-marker">N3 &middot; Yanagawa Boat</div>
+    <div class="note-title">Pre-book the punt boat for Day 2</div>
+    <div class="note-key">Ask the Ritz concierge to book Yanagawa Hissen or Dontaku Suijo Kanko for Fri 29 May around 14:00.</div>
+    <div class="note-body">
+      Two main operators run the donko-bune cruises &mdash; <strong>Yanagawa Hissen</strong> (largest fleet) or <strong>Dontaku Suijo Kanko</strong>. Either is excellent. The ride is 70 minutes, entirely passive, ideal for Gus's recovery &mdash; and the afternoon light on the canals is the best of the day.
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="note-marker">N4 &middot; Eel Restaurant in Yanagawa</div>
+    <div class="note-title">Confirm the seiromushi venue</div>
+    <div class="note-key">Ask the concierge to recommend &amp; book Motofuji or Wakamatsuya before Day 2.</div>
+    <div class="note-body">
+      "Ohana Restaurant" mentioned in early planning couldn't be independently verified. The two well-established options for seiromushi in Yanagawa are <strong>Motofuji</strong> and <strong>Wakamatsuya</strong>. The historic <strong>Yanagawa Ohana</strong> manor-house also serves it, but requires advance booking &mdash; worth asking about if you'd like to try.
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="note-marker">N5 &middot; Cancellation Deadlines</div>
+    <div class="note-title">Everything cancels by Wed 27 May</div>
+    <div class="note-key">Three deadlines fall on the same day &mdash; act before end of business 27 May if anything changes.</div>
+    <div class="note-body">
+      <strong>Hotel (91140844)</strong> &middot; Free cancel before 27 May 23:59 local time. Late fee: &yen;124,420.<br>
+      <strong>Gohanya Hansuke</strong> &middot; Cancel by 27 May (3 days prior).<br>
+      <strong>Rakutenchi</strong> &middot; Cancel by 27 May (2 days prior).
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="note-marker">N6 &middot; Practical</div>
+    <div class="note-title">Cash, transit, and small habits</div>
+    <div class="note-key">Subway accepts contactless cards directly &mdash; no IC card needed.</div>
+    <div class="note-body">
+      <strong>Cash</strong> &middot; The yatai stalls and Yanagibashi Market are cash-only. Withdraw JPY at the airport 7-Eleven or Lawson on arrival.<br><br>
+      <strong>Subway</strong> &middot; Tap an international Visa or Amex at the turnstile. Daily cap &yen;640.<br><br>
+      <strong>Taxis</strong> &middot; Use the <strong>GO app</strong> &mdash; supports English destination input.<br><br>
+      <strong>Mentaiko</strong> &middot; Vacuum-packed is fine in checked luggage. Best from Fukuya, Yamaya, or Yanagibashi Market.
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="note-marker">N7 &middot; Stay</div>
+    <div class="note-title">The Ritz-Carlton, Fukuoka</div>
+    <div class="note-key">Confirmed &middot; 4 nights &middot; King, Skyline View &middot; Conf 91140844</div>
+    <div class="note-body">
+      Marriott's first luxury property in Kyushu &mdash; opened 2023, rated 9.6/10. Set within Daimyo Garden City in the heart of Chuo-ku. Spa with steam room available.
+      <div class="note-detail-mono">
+        Check-in <strong>Thu 28 May 15:00</strong> &middot; Check-out <strong>Mon 1 Jun 12:00</strong><br>
+        Guest Room, 1 King, Skyline View &middot; Floors 19&ndash;23<br>
+        Alibaba Global Partner Rate &middot; No breakfast included<br>
+        Free cancel by 27 May 23:59 &middot; Mastercard guarantee
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="note-marker">N8 &middot; Flights</div>
+    <div class="note-title">Thai Airways &middot; both directions confirmed</div>
+    <div class="note-key">TG648 out &middot; TG649 back &middot; Business Class, A330-300, seats together</div>
+    <div class="note-body">
+      <div class="note-detail-mono">
+        <strong>Outbound &middot; Thu 28 May</strong><br>
+        TG648 &middot; BKK 00:40 &rarr; FUK 08:00 &middot; A330-300<br>
+        Business(Z) &middot; Seats <strong>17F</strong> (Champ) &amp; <strong>17D</strong> (Gus)<br>
+        2 PCS baggage each &middot; Ref EZY88H / EZSNAC
+      </div>
+      <div class="note-detail-mono" style="margin-top:14px;">
+        <strong>Return &middot; Mon 1 Jun</strong><br>
+        TG649 &middot; FUK 11:35 &rarr; BKK 15:05 &middot; A330-300<br>
+        Business(Z) &middot; Seats <strong>14G</strong> (Champ) &amp; <strong>14E</strong> (Gus)<br>
+        2 PCS baggage each &middot; <strong style="color:var(--red)">Leave hotel by 09:30</strong>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-kanji">福岡</div>
+  <div class="foot">Fukuoka &middot; 28 May &ndash; 1 Jun 2026 &middot; Champ &amp; Gus</div>
+</footer>
+
+<script>
+var obs = new IntersectionObserver(function(e) {
+  e.forEach(function(x) { if (x.isIntersecting) { x.target.classList.add('in'); obs.unobserve(x.target); } });
+}, { threshold: 0.04 });
+document.querySelectorAll('.day').forEach(function(el) { obs.observe(el); });
+</script>
+</body>
+</html>
